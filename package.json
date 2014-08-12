@@ -14,13 +14,14 @@
     "karma-junit-reporter": "^0.2.2"
   },
   "dependencies": {
-    "bower": "^1.3.1"
+    "bower": "^1.3.1",
+    "express": "3.x"
   },
   "scripts": {
     "postinstall": "bower install",
 
     "prestart": "npm install",
-    "start": "http-server -a localhost -p 8000",
+    "start": "node web.js",
 
     "pretest": "npm install",
     "test": "karma start test/karma.conf.js",
