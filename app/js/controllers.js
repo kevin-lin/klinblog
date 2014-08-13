@@ -13,4 +13,8 @@ angular.module('myApp.controllers', [])
     // download the data into a local object
     var syncObject = sync.$asObject();
     syncObject.$bindTo($scope, "data");
+    
+    $scope.submitPost = function(){
+      console.log("submitPost called");
+    };
   }]);
