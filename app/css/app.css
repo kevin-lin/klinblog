@@ -36,3 +36,8 @@
 #new-post-form {
   margin-bottom: 30px;
 }
+
+.zoomIn {
+  -webkit-animation-duration: .5s; /* Chrome, Safari, Opera */
+  animation-duration: .5s;
+}
