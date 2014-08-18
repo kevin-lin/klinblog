@@ -10,13 +10,21 @@
   <button type="submit" class="btn btn-primary">Post</button>
 </form>
 
+<div class="blog-post">
+  <h2 class="blog-post-title">{{newPostTitle}}</h2>
+  <p class="blog-post-meta">{{previewDate | date:'MMMM d, y'}} by <a href="#">Kevin</a></p>
+  <div ng-bind-html="newPostBody"></div>
+</div>
+
+<!-- HTML reference -->
 <div class="row">
   <div class="col-sm-6">
 
+    <!-- paragraph -->
     <div class="blog-post">
       <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
       <pre><code>&ltp&gtThis blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.&lt/p&gt</code></pre>
-    </div><!-- /.blog-post -->
+    </div>
 
     <div class="blog-post">
       <p>

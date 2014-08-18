@@ -11,6 +11,7 @@ angular.module('myApp.controllers', [])
   .controller('PostController', ['$scope', '$firebase', function($scope, $firebase) {
     var ref = new Firebase("https://klinblog.firebaseio.com/");
     var sync = $firebase(ref);
+    $scope.previewDate = new Date().toJSON();
 
     $scope.submitPost = function(){
       if(!$scope.newPostTitle || !$scope.newPostBody){
