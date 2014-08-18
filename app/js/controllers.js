@@ -7,7 +7,6 @@ angular.module('myApp.controllers', [])
     var ref = new Firebase("https://klinblog.firebaseio.com/");
     var sync = $firebase(ref);
     $scope.posts = sync.$asArray();
-    console.log($scope.posts);
   }])
   .controller('PostController', ['$scope', '$firebase', function($scope, $firebase) {
     var ref = new Firebase("https://klinblog.firebaseio.com/");

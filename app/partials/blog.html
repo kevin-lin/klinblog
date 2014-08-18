@@ -10,7 +10,7 @@
 
     <div class="blog-post" ng-repeat="post in posts | orderBy:'-timestamp'">
       <h2 class="blog-post-title">{{post.title}}</h2>
-      <p class="blog-post-meta">{{post.timestamp}} by <a href="#">Kevin</a></p>
+      <p class="blog-post-meta">{{post.timestamp | date:'MMMM d, y'}} by <a href="#">Kevin</a></p>
       {{post.body}}
     </div>
 
