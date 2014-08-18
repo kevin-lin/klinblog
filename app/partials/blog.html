@@ -1,16 +1,28 @@
 <div class="row">
+
   <div class="col-sm-8 blog-main">
+
     <div class="blog-post">
       <h2 class="blog-post-title">Sample Blog Post</h2>
       <p class="blog-post-meta">August 17, 2014 by <a href="#">Kevin</a></p>
       <p>This is an example of a blog post.</p>
     </div><!-- /.blog-post -->
+
+    <div class="blog-post" ng-repeat="post in posts | orderBy:'-timestamp'">
+      <h2 class="blog-post-title">{{post.title}}</h2>
+      <p class="blog-post-meta">{{post.timestamp}} by <a href="#">Kevin</a></p>
+      {{post.body}}
+    </div>
+
   </div>
+
   <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
     <div class="sidebar-module sidebar-module-inset">
       <h4>About</h4>
       <p>This is my personal blog where I discuss my life.</p>
     </div>
+
     <div class="sidebar-module">
       <h4>Archives</h4>
       <ol class="list-unstyled">
@@ -19,6 +31,7 @@
         <li><a href="#">January 2014</a></li>
       </ol>
     </div>
+
     <div class="sidebar-module">
       <h4>Elsewhere</h4>
       <ol class="list-unstyled">
@@ -28,7 +41,9 @@
         <li><a href="https://www.facebook.com/kevin.lin94">Facebook</a></li>
       </ol>
     </div>
+
   </div><!-- /.blog-sidebar -->
+
 </div>
 
 <ul class="pager">
