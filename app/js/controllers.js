@@ -13,6 +13,9 @@ angular.module('myApp.controllers', [])
     var sync = $firebase(ref);
 
     $scope.submitPost = function(){
+      if(!$scope.newPostTitle || !$scope.newPostBody){
+        return;
+      }
       var currentTime = new Date().toJSON();
       sync.$push({"title": $scope.newPostTitle, "body": $scope.newPostBody, "timestamp": currentTime});
       $scope.newPostTitle = "";
