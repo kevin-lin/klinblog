@@ -8,14 +8,12 @@ angular.module('myApp.controllers', [])
   }])
   .controller('PostController', ['$scope', '$firebase', function($scope, $firebase) {
     var ref = new Firebase("https://klinblog.firebaseio.com/");
-    // create an AngularFire reference to the data
     var sync = $firebase(ref);
-    // download the data into a local object
-    var syncObject = sync.$asObject();
-    syncObject.$bindTo($scope, "data");
-    $scope.data.foobar = "foo";
 
     $scope.submitPost = function(){
-      $scope.data.myNewPost = $scope.newPostBody;
+      var currentTime = new Date().toJSON();
+      sync.$push({"title": $scope.newPostTitle, "body": $scope.newPostBody, "timestamp": currentTime});
+      $scope.newPostTitle = "";
+      $scope.newPostBody = "";
     };
   }]);
