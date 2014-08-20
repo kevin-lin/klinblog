@@ -16,7 +16,7 @@ angular.module('myApp.controllers', [])
         console.log("Logged in as: ", user.uid);
         $scope.email = undefined;
         $scope.password = undefined;
-        $location.path("/post");
+        $("#loginModal").modal("hide");
       }, function(error) {
         console.error("Login failed: ", error);
         $scope.email = undefined;
@@ -42,9 +42,16 @@ angular.module('myApp.controllers', [])
     $scope.$parent.blogTabActive = false;
     $scope.$parent.postTabActive = true;
     $scope.previewDate = new Date().toJSON();
+    if(!$scope.$parent.loginObj.user){
+      $("#loginModal").modal();
+    }
 
     $scope.submitPost = function(){
       if(!$scope.newPostTitle || !$scope.newPostBody){
+        return;
+      }
+      if(!$scope.$parent.loginObj.user){
+        $("#loginModal").modal();
         return;
       }
       var currentTime = new Date().toJSON();
