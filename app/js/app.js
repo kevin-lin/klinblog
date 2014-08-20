@@ -14,5 +14,6 @@ angular.module('myApp', [
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {templateUrl: 'partials/blog.html', controller: 'BlogController'});
   $routeProvider.when('/post', {templateUrl: 'partials/post.html', controller: 'PostController'});
+  $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'MainController'});
   $routeProvider.otherwise({redirectTo: '/'});
 }]);

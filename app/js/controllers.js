@@ -3,11 +3,35 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
+  .controller('MainController', ['$scope', '$location', '$firebaseSimpleLogin', function($scope, $location, $firebaseSimpleLogin) {
+    var dataRef = new Firebase("https://klinblog.firebaseio.com");
+    $scope.loginObj = $firebaseSimpleLogin(dataRef);
+    $scope.login = function(){
+      $scope.loginObj.$login("password", {
+        email: $scope.email,
+        password: $scope.password 
+      }).then(function(user) {
+        console.log("Logged in as: ", user.uid);
+        $scope.email = undefined;
+        $scope.password = undefined;
+        $location.path("/post");
+      }, function(error) {
+        console.error("Login failed: ", error);
+        $scope.email = undefined;
+        $scope.password = undefined;
+      });
+    };
+    $scope.logout = function() {
+      $scope.loginObj.$logout();
+    };
+  }])
+
   .controller('BlogController', ['$scope', '$firebase', function($scope, $firebase) {
     var ref = new Firebase("https://klinblog.firebaseio.com/");
     var sync = $firebase(ref);
     $scope.posts = sync.$asArray();
   }])
+
   .controller('PostController', ['$scope', '$firebase', function($scope, $firebase) {
     var ref = new Firebase("https://klinblog.firebaseio.com/");
     var sync = $firebase(ref);
@@ -64,4 +88,4 @@ angular.module('myApp.controllers', [])
     $scope.addOrderedList = function(){
       addHTMLTag('\n<ol>\n  <li></li>\n</ol>');
     };
-  }]);
+  }])
