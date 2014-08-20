@@ -6,6 +6,8 @@ angular.module('myApp.controllers', [])
   .controller('MainController', ['$scope', '$location', '$firebaseSimpleLogin', function($scope, $location, $firebaseSimpleLogin) {
     var dataRef = new Firebase("https://klinblog.firebaseio.com");
     $scope.loginObj = $firebaseSimpleLogin(dataRef);
+    $scope.blogTabActive = false;
+    $scope.postTabActive = false;
     $scope.login = function(){
       $scope.loginObj.$login("password", {
         email: $scope.email,
@@ -29,12 +31,16 @@ angular.module('myApp.controllers', [])
   .controller('BlogController', ['$scope', '$firebase', function($scope, $firebase) {
     var ref = new Firebase("https://klinblog.firebaseio.com/");
     var sync = $firebase(ref);
+    $scope.$parent.blogTabActive = true;
+    $scope.$parent.postTabActive = false;
     $scope.posts = sync.$asArray();
   }])
 
   .controller('PostController', ['$scope', '$firebase', function($scope, $firebase) {
     var ref = new Firebase("https://klinblog.firebaseio.com/");
     var sync = $firebase(ref);
+    $scope.$parent.blogTabActive = false;
+    $scope.$parent.postTabActive = true;
     $scope.previewDate = new Date().toJSON();
 
     $scope.submitPost = function(){
@@ -88,4 +94,4 @@ angular.module('myApp.controllers', [])
     $scope.addOrderedList = function(){
       addHTMLTag('\n<ol>\n  <li></li>\n</ol>');
     };
-  }])
+  }]);

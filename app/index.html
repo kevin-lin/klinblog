@@ -26,8 +26,8 @@
   <div class="blog-masthead">
     <div class="container">
       <nav class="blog-nav">
-        <a class="blog-nav-item active" href="/#/">Blog</a>
-        <a class="blog-nav-item" href="/#/post">Post</a>
+        <a class="blog-nav-item" ng-class="{active: blogTabActive}" href="/#/">Blog</a>
+        <a class="blog-nav-item" ng-class="{active: postTabActive}" href="/#/post">Post</a>
         <a class="blog-nav-item pull-right" href="/#/login" ng-hide="loginObj.user">Login</a>
         <a class="blog-nav-item pull-right" href="/#/login" ng-show="loginObj.user" ng-click="logout()">Logout</a>
       </nav>
