@@ -49,7 +49,9 @@ angular.module('myApp.controllers', [])
     }
 
     $scope.submitPost = function(){
-      if(!$scope.newPostTitle || !$scope.newPostBody){
+      $scope.emptyTitleError = !$scope.newPostTitle;
+      $scope.emptyBodyError = !$scope.newPostBody;
+      if($scope.emptyTitleError || $scope.emptyBodyError){
         return;
       }
       if(!$scope.$parent.loginObj.user){
