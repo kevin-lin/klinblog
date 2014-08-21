@@ -16,11 +16,12 @@ angular.module('myApp.controllers', [])
         console.log("Logged in as: ", user.uid);
         $scope.email = undefined;
         $scope.password = undefined;
+        $scope.loginError = undefined;
         $("#loginModal").modal("hide");
       }, function(error) {
         console.error("Login failed: ", error);
-        $scope.email = undefined;
         $scope.password = undefined;
+        $scope.loginError = true;
       });
     };
     $scope.logout = function() {
