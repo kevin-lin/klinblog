@@ -36,7 +36,7 @@ angular.module('myApp.controllers', [])
     $scope.posts = sync.$asArray();
   }])
 
-  .controller('PostController', ['$scope', '$firebase', function($scope, $firebase) {
+  .controller('PostController', ['$scope', '$location', '$firebase', function($scope, $location, $firebase) {
     var ref = new Firebase("https://klinblog.firebaseio.com/");
     var sync = $firebase(ref);
     $scope.$parent.blogTabActive = false;
@@ -44,6 +44,7 @@ angular.module('myApp.controllers', [])
     $scope.previewDate = new Date().toJSON();
     if(!$scope.$parent.loginObj.user){
       $("#loginModal").modal();
+      $location.path('/');
     }
 
     $scope.submitPost = function(){
