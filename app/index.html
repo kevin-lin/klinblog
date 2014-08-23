@@ -56,7 +56,7 @@
     <div class="container">
       <nav class="blog-nav">
         <a class="blog-nav-item" ng-class="{active: blogTabActive}" ng-show="loginObj.user" href="/#/">Blog</a>
-        <a class="blog-nav-item" ng-class="{active: postTabActive}" ng-show="loginObj.user" href="/#/post">Post</a>
+        <a class="blog-nav-item" ng-class="{active: postTabActive}" ng-show="loginObj.user" href="/#/new_post">Post</a>
         <a class="blog-nav-item pull-right" ng-hide="loginObj.user" onclick="$('#loginModal').modal();">Log in</a>
         <a class="blog-nav-item pull-right" href="#" ng-show="loginObj.user" ng-click="logout()">Logout</a>
       </nav>
