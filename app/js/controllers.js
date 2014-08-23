@@ -37,6 +37,26 @@ angular.module('myApp.controllers', [])
     $scope.posts = sync.$asArray();
   }])
 
+  .controller('PostController', ['$scope', '$routeParams', '$firebase', function($scope, $routeParams, $firebase) {
+    var ref = new Firebase("https://klinblog.firebaseio.com/");
+    var sync = $firebase(ref);
+    $scope.$parent.blogTabActive = true;
+    $scope.$parent.postTabActive = false;
+    var postID = $routeParams.postID;
+    var allPosts = sync.$asArray();
+    allPosts.$loaded().then(function(x) {
+      if(allPosts[postID]){
+        $scope.posts = [allPosts[postID]];
+      }
+      else{
+        $scope.posts = [{'title': 'Post not found',
+          'body': 'No post exists with the specified ID',
+          'timestamp': '2014-01-02T00:00:00.000Z'
+        }];
+      }
+    });
+  }])
+
   .controller('NewPostController', ['$scope', '$location', '$firebase', function($scope, $location, $firebase) {
     var ref = new Firebase("https://klinblog.firebaseio.com/");
     var sync = $firebase(ref);
