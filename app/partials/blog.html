@@ -6,6 +6,8 @@
       <h2 class="blog-post-title">{{post.title}}</h2>
       <p class="blog-post-meta">{{post.timestamp | date:'MMMM d, y'}} by <a href="#">Kevin</a></p>
       <div ng-bind-html="post.body"></div>
+      <br>
+      <h6><a href="/#/post/{{posts.length - $index - 1}}" class="pull-right">Permalink</a></h6>
     </div>
 
   </div>
