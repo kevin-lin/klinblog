@@ -35,6 +35,9 @@ angular.module('myApp.controllers', [])
     $scope.$parent.blogTabActive = true;
     $scope.$parent.postTabActive = false;
     $scope.posts = sync.$asArray();
+    $scope.updatePost = function(index){
+      $scope.posts.$save(index);
+    };
   }])
 
   .controller('PostController', ['$scope', '$routeParams', '$firebase', function($scope, $routeParams, $firebase) {
