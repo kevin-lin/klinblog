@@ -22,7 +22,8 @@
           <button type="submit" class="btn btn-primary">Save</button>
         </form>
       </div>
-      <ul class="list-inline pull-right">
+      <!-- post controls -->
+      <ul class="list-inline pull-right ng-cloak" ng-cloak>
         <li><h6><a href="" ng-click="editMode=!editMode" ng-show="loginObj.user">Edit</a></h6></li>
         <li><h6><a href="/#/post/{{posts.length - $index - 1}}">Permalink</a></h6></li>
       </ul>

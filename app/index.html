@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/blog.css"/>
   <link rel="stylesheet" href="css/app.css"/>
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
 </head>
 <body ng-controller="MainController">
 
@@ -52,7 +53,8 @@
     </div>
   </div>
 
-  <div class="blog-masthead">
+  <!-- navbar -->
+  <div class="blog-masthead ng-cloak" ng-cloak>
     <div class="container">
       <nav class="blog-nav">
         <a class="blog-nav-item" ng-class="{active: blogTabActive}" ng-show="loginObj.user" href="/#/">Blog</a>
@@ -63,6 +65,7 @@
     </div>
   </div>
 
+  <!-- profile banner -->
   <div class="blog-header">
     <div class="container">
       <a href="/#/"><img src="img/profile.jpg" alt="Profile Picture" id="profile-picture" class="img-circle pull-left" width="150" height="150"></a>
@@ -81,7 +84,6 @@
     </p>
   </div>
 
-  <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
   <script src="bower_components/firebase/firebase.js"></script>
